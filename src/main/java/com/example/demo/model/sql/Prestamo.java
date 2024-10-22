@@ -4,16 +4,21 @@ import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "prestamos")
 public class Prestamo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @ManyToOne
     @JoinColumn(name = "usuario_id", nullable = false)
     private Usuario usuario;
+
     @ManyToOne
     @JoinColumn(name = "libro_id", nullable = false)
     private Libro libro;
+
     private LocalDate fechaPrestamo;
     private LocalDate fechaDevolucion;
 
